@@ -1,22 +1,26 @@
 #container{
-    font-family: 'Balthazar', serif;
+    /* font-family: 'Tangerine', serif; */
+    /* text-shadow: 4px 4px 4px #aaa; */
+    font-family: 'Shadows Into Light', serif;
+    font-size: 20px;
     display: grid;
     grid-gap: 5px;
     grid-template-areas: 
     "i i b"
     "p p p"
-    "p p p";
+    "p p p"
+    "d d d";
 }
 #team-button{
     grid-area: b;
-    background-color: #fdcb6e;
-    border: 1px solid #fdcb6e;
-    box-shadow: 1px 1px 3px #2c3e50;
     cursor: pointer;
+    font-family: 'Shadows Into Light', serif;
+    font-size: 25px;
 }
 #team-input{
     grid-area: i;
-    font-size: 1vw;
+    font-size: 2vw;
+    font-family: 'Shadows Into Light', serif;
 }
 #players{
     grid-area: p;
@@ -34,9 +38,45 @@
     background-color: #ffeaa7;
     border: 1px solid #fdcb6e;
     box-shadow: 1px 1px 5px #636e72;
+    position: relative;
 }
 img{
     background-color: #dfe6e9;
     border: 1px solid #b2bec3;
     box-shadow: 1px 1px 5px #636e72;
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+}
+img:hover{
+    background-color: #ffffff99;
+}
+.stats{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    position: absolute;
+    color: black;
+    background-color: #ffffff99;
+    top: 33%;
+    width: 300px;
+    height: 200px;
+}
+.error{
+    color: red;
+    font-size: 30px;
+}
+.add-player{
+    font-family: 'Shadows Into Light', serif;
+    background-color: #fdcb6e;
+    border: 1px solid #fdcb6e;
+    box-shadow: 1px 1px 3px #2c3e50;
+    cursor: pointer;
+}
+#dream-team{
+    font-size: 25px;
+    font-family: 'Shadows Into Light', serif;
+    grid-area: d;
+    cursor: pointer;
+    height: 5vh;
 }

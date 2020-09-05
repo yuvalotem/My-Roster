@@ -23,7 +23,8 @@ router.get('/teams/:teamName', (req, res) => {
                 name: `${p.firstName} ${p.lastName}`,
                 jersy: p.jersey,
                 position: p.teamSitesOnly.posFull,
-                img: `http://nba-players.herokuapp.com/players/${p.lastName}/${p.firstName}`
+                img: `http://nba-players.herokuapp.com/players/${p.lastName}/${p.firstName}`,
+                dreamTeam: false
             }
         })
     res.send(players)
@@ -55,7 +56,7 @@ router.put('/team', function(req, res) {
     res.send(teamToIDs)
 })
 
-const dreamTeam = []
+let dreamTeam = []
 router.get('/dreamTeam', function(req, res) {
     res.send(dreamTeam)
 })
@@ -65,5 +66,13 @@ router.post('/roster', function(req, res) {
     dreamTeam.push(player)
     res.end()
 })
+
+router.delete('/roster/:name', function (req, res) {
+    const playerName = req.params.name
+    dreamTeam = dreamTeam.filter(p => p.name != playerName)
+    res.send(dreamTeam)
+})
+
+router.post('/roster')
 
 module.exports = router

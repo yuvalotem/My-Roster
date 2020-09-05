@@ -1,12 +1,10 @@
 #container{
-    /* font-family: 'Tangerine', serif; */
-    /* text-shadow: 4px 4px 4px #aaa; */
     font-family: 'Shadows Into Light', serif;
     font-size: 20px;
     display: grid;
     grid-gap: 5px;
     grid-template-areas: 
-    "i i b"
+    "i b s"
     "p p p"
     "p p p"
     "d d d";
@@ -79,4 +77,22 @@ img:hover{
     grid-area: d;
     cursor: pointer;
     height: 5vh;
+}
+.remove-player{
+    font-family: 'Shadows Into Light', serif;
+    background-color: #e74c3c;
+    border: 1px solid #e74c3c;
+    box-shadow: 1px 1px 3px #2c3e50;
+    cursor: pointer;
+}
+.teamName{
+    font-family: 'Shadows Into Light', serif;
+    height: 5vh;
+}
+.create{
+    font-family: 'Shadows Into Light', serif;
+    height: 5vh;
+}
+#saved-container{
+    grid-area: s;
 }

@@ -11,6 +11,11 @@
     <div id="container">
         <input id="team-input" placeholder="Enter team name">
         <button id="team-button">Get Roster</button>
+        <div id="saved-container"> 
+            <span id="saved-bar">    
+            </span>   
+            <button id="showTeam">Show team</button>
+        </div>
         <div id="players"></div>
         <button id="dream-team">Show Dream Team</button>
     </div>
@@ -20,9 +25,13 @@
             <div class="player-card">
                 <p class = "playerName">{{name}}</p>
                 <p class = "playerJersy">{{jersy}}</p>
-                <img src="{{img}}" onerror='this.src="https://i.ytimg.com/vi/ASGBDmZj6o0/sddefault.jpg"')>
+                <img src="{{img}}" onerror='this.src="https://st3.depositphotos.com/4111759/13425/v/450/depositphotos_134255532-stock-illustration-profile-placeholder-male-default-profile.jpg"')>
                 <p class = "playerPosition">{{position}}</p>
-                <button class="add-player">add to Dream Team</button>
+                {{#if dreamTeam}}
+                <button class="remove-player">Remove from Dream Team</button>
+                {{else}}
+                <button class="add-player">Add to Dream Team</button>
+                {{/if}}
             </div>
         {{/each}}
     </script>
@@ -34,6 +43,13 @@
                 <span>Steals per game: {{this.steals}}</span>
                 <span>Blocks per game: {{this.blocks}}</span>
             </div>
+    </script>
+    <script id="saved-template" type="text/x-handlebars-template">
+        <select name="saved" id="saved-users">
+            {{#each this}}
+                <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
     </script>
     <script src="/handlebars/dist/handlebars.js"></script>
     <script src="/jquery/dist/jquery.js"></script>

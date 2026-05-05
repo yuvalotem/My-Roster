@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shadows Into Light">
+    <title>My Roster</title>
+</head>
+<body>
+    <div id="container">
+        <input id="team-input" placeholder="Enter team name">
+        <button id="team-button">Get Roster</button>
+        <div id="saved-container"> 
+            <span id="saved-bar">    
+            </span>   
+            <button id="showTeam">Show team</button>
+        </div>
+        <div id="players"></div>
+        <button id="dream-team">Show Dream Team</button>
+    </div>
+
+    <script id="players-template"  type="text/x-handlebars-template">
+        {{#each data}}
+            <div class="player-card">
+                <p class = "playerName">{{name}}</p>
+                <p class = "playerJersy">{{jersy}}</p>
+                <img src="{{img}}" onerror='this.src="https://st3.depositphotos.com/4111759/13425/v/450/depositphotos_134255532-stock-illustration-profile-placeholder-male-default-profile.jpg"')>
+                <p class = "playerPosition">{{position}}</p>
+                {{#if dreamTeam}}
+                <button class="remove-player">Remove from Dream Team</button>
+                {{else}}
+                <button class="add-player">Add to Dream Team</button>
+                {{/if}}
+            </div>
+        {{/each}}
+    </script>
+    <script id="stats-template"  type="text/x-handlebars-template">
+            <div class="stats">
+                <span>Points per game: {{this.points}}</span>
+                <span>Assists per game: {{this.assist}}</span>
+                <span>Rebounds per game: {{this.rebounds}}</span>
+                <span>Steals per game: {{this.steals}}</span>
+                <span>Blocks per game: {{this.blocks}}</span>
+            </div>
+    </script>
+    <script id="saved-template" type="text/x-handlebars-template">
+        <select name="saved" id="saved-users">
+            {{#each this}}
+                <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+    </script>
+    <script src="/handlebars/dist/handlebars.js"></script>
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="render.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
